@@ -6,5 +6,18 @@
 </head>
 <body>
     <h1>Student Management System</h1>
+    <h2>Student Search</h2>
+<input type="text" id="searchName" placeholder="Enter student name">
+<button type="button" onclick="searchStudent()">Search</button>
+<p id="searchResult"></p>
+
+<script>
+function searchStudent() {
+    var name = document.getElementById('searchName').value.trim();
+
+    document.getElementById('searchResult').innerText =
+        name ? 'Searching for: ' + name : 'Please enter a name.';
+}
+</script>
 </body>
 </html>
