@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +5,42 @@
 </head>
 <body>
     <h1>Student Management System</h1>
+
+    <h2>Student Registration</h2>
     <p>Student Registration Feature</p>
+
+    <form id="registrationForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <button type="button" onclick="submitForm()">Register</button>
+    </form>
+    <p id="confirmation"></p>
+
+    <h2>Student Search</h2>
+    <input type="text" id="searchName" placeholder="Enter student name">
+    <button type="button" onclick="searchStudent()">Search</button>
+    <p id="searchResult"></p>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            if (name && email && phone) {
+                document.getElementById('confirmation').textContent =
+                    'Thank you, ' + name + '! Registered successfully.';
+            } else {
+                alert('Please fill all fields.');
+            }
+        }
+
+        function searchStudent() {
+            const name = document.getElementById('searchName').value.trim();
+            document.getElementById('searchResult').textContent =
+                name ? 'Searching for: ' + name : 'Please enter a name.';
+        }
+    </script>
 </body>
 </html>
