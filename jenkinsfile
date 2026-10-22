@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'python -m pip install pytest'
+                bat 'python -m pytest'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'python -m zipfile -c app.zip app.py test_app.py'
+            }
+        }
+    }
+}
